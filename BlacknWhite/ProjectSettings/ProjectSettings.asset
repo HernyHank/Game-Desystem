@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 84288b726111dbc4d8a10a8e46dcb5a2
+  productGUID: e23a4a30c0979f24693c67c40bba19d2
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: BlacknWhite
+  productName: Black and White World Fick Edition
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -697,14 +697,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: BlacknWhite
+  metroPackageName: Black and White World Fick Edition
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: BlacknWhite
+  metroApplicationDescription: Black and White World Fick Edition
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -773,10 +773,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 178dcd41-87bc-455d-be7e-10c71aca5cad
+  cloudProjectId: 4978b287-8ae8-4b49-93b0-224fa52d12a2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: BlacknWhite
+  projectName: Black and White World Fick Edition
   organizationId: hankmonahan78
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
