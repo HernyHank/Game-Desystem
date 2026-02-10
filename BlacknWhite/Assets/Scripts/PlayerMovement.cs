@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 15f;
 
     private Rigidbody2D rb;
 
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
 
     public Animator idolOfSholkaController;
-    private int canMoveMultiplier;
+    public int canMoveMultiplier;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,21 +27,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
         //touchingStatue
-        if (idolOfSholkaController.GetBool("polkaCanMove") == false)
+/*        if (idolOfSholkaController.GetBool("polkaCanMove") == false)
         {
             canMoveMultiplier = 0;
-            return;
         }
         else
         {
-            EvaluateMovement();
-        }
-
-
-
+            canMoveMultiplier = 1;
+        }*/
+        EvaluateMovement();
 
     }
 
@@ -49,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //movement left right
         float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(canMoveMultiplier * moveInput * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(canMoveMultiplier * moveInput * moveSpeed, Mathf.Clamp(rb.velocity.y, -30, 50));
 
         if (moveInput != 0)
         {
@@ -80,9 +75,13 @@ public class PlayerMovement : MonoBehaviour
 
             //jumping
             bool isGrounded = Physics2D.OverlapCircle(this.gameObject.transform.position, 0.1f, 1 << LayerMask.NameToLayer("Ground"));
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButtonDown("Jump") && isGrounded && canMoveMultiplier != 0)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        if (Input.GetButtonUp("Jump") && rb.velocity.y >= 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
         }
 
 
