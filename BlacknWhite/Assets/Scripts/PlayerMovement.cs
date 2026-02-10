@@ -12,26 +12,44 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator ani;
     private SpriteRenderer sr;
+
+    public Animator idolOfSholkaController;
+    private int canMoveMultiplier;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        canMoveMultiplier = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        EvaluateMovement();
+       
         
+        //touchingStatue
+        if (idolOfSholkaController.GetBool("polkaCanMove") == false)
+        {
+            canMoveMultiplier = 0;
+            return;
+        }
+        else
+        {
+            EvaluateMovement();
+        }
+
+
+
+
     }
 
     private void EvaluateMovement()
     {
         //movement left right
         float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(canMoveMultiplier * moveInput * moveSpeed, rb.velocity.y);
 
         if (moveInput != 0)
         {
@@ -66,5 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+
     }
 }
